@@ -10,16 +10,34 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:search-presets.helloWorld"
+    "onCommand:search-presets.search"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "search-presets.helloWorld",
-        "title": "Hello World"
+        "command": "search-presets.search",
+        "title": "Search Presets"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Search Presets",
+      "properties": {
+        "search-presets": {
+          "order": 1,
+          "type": "object",
+					"description": "Search Presets configuration",
+          "additionalProperties": {
+            "type": "object",
+            "description": "preset object",
+            "properties": {
+              "filesToInclude": {"type": "string"},
+              "filesToExclude": {"type": "string"}
+            }
+          }
+				}
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
