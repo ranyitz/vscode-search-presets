@@ -11,7 +11,7 @@ https://user-images.githubusercontent.com/11733036/190869568-f2aa39cf-2067-43cf-
 
 ## Installation
 
-[Click Here](vscode:extension/ranyitz.search-presets) or visit https://marketplace.visualstudio.com/items?itemName=ranyitz.search-presets
+[Click Here](https://marketplace.visualstudio.com/items?itemName=ranyitz.search-presets)
 
 ## How to use?
 
