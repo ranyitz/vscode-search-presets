@@ -2,6 +2,9 @@
   "name": "search-presets",
   "displayName": "SearchPresets",
   "description": "let you configure preset for vscode's search",
+  "repository": {
+    "url": "https://github.com/ranyitz/vscode-search-presets"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.71.0"
