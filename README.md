@@ -9,6 +9,10 @@ This extension let you configure presets which configures your search by typing 
 
 https://user-images.githubusercontent.com/11733036/190869568-f2aa39cf-2067-43cf-bf3f-7913112f9686.mp4
 
+## Installation
+
+[Click Here](vscode:extension/ranyitz.search-presets) or visit https://marketplace.visualstudio.com/items?itemName=ranyitz.search-presets
+
 ## How to use?
 
 Use the command pallete (`cmd+shift+p`) to use one of your search presets. Type:
