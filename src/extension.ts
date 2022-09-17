@@ -1,8 +1,8 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { getConfig } from './configuration/getConfig';
 
 // let success = await vscode.commands.executeCommand('search.action.openEditor', searchConfig);
+
 // type SearchConfiguration = {
 // 	query: string,
 // 	includes: string,
@@ -15,7 +15,7 @@ import * as vscode from 'vscode';
 // 	showIncludesExcludes: boolean,
 // };
 
-interface IFindInFilesArgs {
+export interface IFindInFilesArgs {
 	query?: string;
 	replace?: string;
 	triggerSearch?: boolean;
@@ -25,26 +25,20 @@ interface IFindInFilesArgs {
 	isCaseSensitive?: boolean;
 	matchWholeWord?: boolean;
 }
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-	
-	let disposable = vscode.commands.registerCommand('search-presets.search', async () => {
-		const workbenchConfig = vscode.workspace.getConfiguration();
 
-		const presets = workbenchConfig.get('search-presets');
-		// TODO: validate presets
-		
-		// TODO: if there is an existing query - reuse it!
-		const searchConfig: Partial<IFindInFilesArgs> = {
+export function activate(context: vscode.ExtensionContext) {	
+	let searchCommand = vscode.commands.registerCommand('SearchPresets.search', async () => {
+		const config = getConfig();
+		const presets = config.presets;
+		const presetNames = Object.keys(presets as Object);
+
+		const defaultConfig: Partial<IFindInFilesArgs> = {
 			query: '',
 			triggerSearch: false,
 			filesToExclude: '',
 			filesToInclude: '',
 		};
-
-		const presetNames = Object.keys(presets as Object);
-
+		
 		vscode.window.showQuickPick(presetNames).then(selectedPresetName => {
 			// the user canceled the selection
 			if (!selectedPresetName) {
@@ -53,11 +47,11 @@ export function activate(context: vscode.ExtensionContext) {
 		  
 			const selectedPreset = (presets as any)[selectedPresetName];
 
-			vscode.commands.executeCommand('workbench.action.findInFiles', {...searchConfig, ...selectedPreset});
+			vscode.commands.executeCommand('workbench.action.findInFiles', { ...defaultConfig, ...selectedPreset });
 		  });
 	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(searchCommand);
 }
 
 // this method is called when your extension is deactivated
