@@ -22,6 +22,8 @@ And choose the preset to use.
 This extension contributes the following settings:
 * `SearchPresets`: your custom presets configuration
 ```
+// settings.json
+
 "SearchPresets": {
     [PresetName]": {
         "filesToInclude": String
