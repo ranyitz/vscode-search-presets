@@ -1,4 +1,5 @@
 # vscode SearchPresets 🔍
+
 > vscode extension to configure search presets
 
 Sometimes you want to search through specific set of files, you can use vscode's search include/exclude configurations to filter the results.
@@ -16,34 +17,36 @@ https://user-images.githubusercontent.com/11733036/190869568-f2aa39cf-2067-43cf-
 ## How to use?
 
 Use the command pallete (`cmd+shift+p`) to use one of your search presets. Type:
+
 ```
 SearchPresets
 ```
 
 And choose the preset to use.
+
 ## Extension Settings
 
 This extension contributes the following settings:
-* `SearchPresets`: your custom presets configuration
+
+- `search-presets`: your custom presets configuration
+
 ```
 // settings.json
 
-"SearchPresets": {
+"search-presets": {
     [PresetName]": {
         "filesToInclude": String
         "filesToExclude": String
     },
-}, 
+},
 ```
 
+## Default config
 
-### Example default config
+> If you don't configure anything, this are the presets you'll get
 
 ```json
-"SearchPresets": {
-    "English Translations": {
-      "filesToInclude": "*_en.json"
-    },
+"search-presets": {
     "Tests": {
       "filesToInclude": ".test.*, .spec.*, .e2e.*, .driver.*"
     },
@@ -53,5 +56,24 @@ This extension contributes the following settings:
     "package.json": {
         "filesToInclude": "package.json"
     }
-}, 
+},
+```
+
+## Preset ideas
+
+```json
+{
+"Tests": {
+    "filesToInclude": ".test.*, .spec.*, .e2e.*, .driver.*"
+},
+"Source Files": {
+    "filesToExclude": "*.test.js, *.driver.*, *.json"
+  },
+"package.json": {
+    "filesToInclude": "package.json"
+},
+"Lock File" :{
+    "filesToInclude: "yarn.lock"
+}
+}
 ```

@@ -28,7 +28,7 @@
     "configuration": {
       "title": "Search Presets",
       "properties": {
-        "searchPresets": {
+        "search-presets": {
           "order": 1,
           "type": "object",
           "description": "Search Presets configuration",
@@ -70,6 +70,7 @@
     "eslint": "^8.20.0",
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
+    "prettier": "^2.7.1",
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.4",
     "webpack": "^5.74.0",
