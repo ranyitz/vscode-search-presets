@@ -1,6 +1,6 @@
 {
   "name": "search-presets",
-  "displayName": "SearchPresets",
+  "displayName": "Search Presets 🔎",
   "description": "let you configure preset for vscode's search",
   "repository": {
     "url": "https://github.com/ranyitz/vscode-search-presets"
@@ -14,21 +14,27 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:SearchPresets.search",
-    "onCommand:SearchPresets.save"
+    "onCommand:search-presets.search"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "SearchPresets.search",
-        "title": "SearchPresets: 🔍 Search"
+        "command": "search-presets.search",
+        "title": "Search Presets: 🔎 Search"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "search-presets.search",
+        "key": "shift+alt+f",
+        "mac": "shift+alt+f"
       }
     ],
     "configuration": {
       "title": "Search Presets",
       "properties": {
-        "search-presets": {
+        "search-presets.custom": {
           "order": 1,
           "type": "object",
           "description": "Search Presets configuration",
@@ -61,6 +67,7 @@
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
+    "@types/lodash": "^4.14.185",
     "@types/mocha": "^9.1.1",
     "@types/node": "16.x",
     "@types/vscode": "^1.71.0",
@@ -77,6 +84,7 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "zod": "^3.19.1"
   }
 }

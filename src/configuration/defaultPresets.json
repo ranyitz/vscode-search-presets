@@ -1,0 +1,11 @@
+{
+  "Tests": {
+    "filesToInclude": ".test.*, .spec.*, .e2e.*, .driver.*"
+  },
+  "Source Files": {
+    "filesToExclude": ".e2e.*, .spec.*, .test.*, .driver.*, .json, .md, .lock"
+  },
+  "package.json": {
+    "filesToInclude": "package.json"
+  }
+}

@@ -8,7 +8,7 @@ There are some common workflows that are repeted through your day, like searcing
 
 This extension let you configure presets which configures your search by typing a single command.
 
-https://user-images.githubusercontent.com/11733036/190869568-f2aa39cf-2067-43cf-bf3f-7913112f9686.mp4
+![search-presets](https://user-images.githubusercontent.com/11733036/190897640-1f961c10-43e5-4ed7-8552-5c6e377f9483.gif)
 
 ## Installation
 
@@ -16,13 +16,10 @@ https://user-images.githubusercontent.com/11733036/190869568-f2aa39cf-2067-43cf-
 
 ## How to use?
 
-Use the command pallete (`cmd+shift+p`) to use one of your search presets. Type:
+Use the command pallete and type `Search Presets` Or use one of the shortcuts:
 
-```
-SearchPresets
-```
-
-And choose the preset to use.
+- Windows: `shift + alt + f`
+- Mac: `option + alt + f`
 
 ## Extension Settings
 
@@ -63,17 +60,17 @@ This extension contributes the following settings:
 
 ```json
 {
-"Tests": {
+  "Tests": {
     "filesToInclude": ".test.*, .spec.*, .e2e.*, .driver.*"
-},
-"Source Files": {
+  },
+  "Source Files": {
     "filesToExclude": "*.test.js, *.driver.*, *.json"
   },
-"package.json": {
+  "package.json": {
     "filesToInclude": "package.json"
-},
-"Lock File" :{
-    "filesToInclude: "yarn.lock"
-}
+  },
+  "Lock File": {
+    "filesToInclude": "yarn.lock"
+  }
 }
 ```
