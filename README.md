@@ -2,14 +2,12 @@
   <img width="250px" src="https://user-images.githubusercontent.com/11733036/191082260-cb3820c5-b335-4ead-bf8f-31db8d68b278.png" alt="search-presets-logo"/>
 </p>
 
-# VSCode Search Presets 🔎
+# VSCode Search Presets
 
 > vscode extension to configure search presets
 
 Sometimes you want to search through a specific set of files, you can use vscode's search include/exclude configurations to filter the results.
-
 There are some common workflows that are repeated throughout your day, like searching only test files, only source files, only `package.json` files, etc.
-
 This extension lets you configure presets which configure your search by typing a single command.
 
 ![search-presets](https://user-images.githubusercontent.com/11733036/190897640-1f961c10-43e5-4ed7-8552-5c6e377f9483.gif)
