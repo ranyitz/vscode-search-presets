@@ -1,6 +1,7 @@
 {
   "name": "search-presets",
   "displayName": "Search Presets 🔎",
+  "icon": "images/logo.png",
   "description": "let you configure preset for vscode's search",
   "repository": {
     "url": "https://github.com/ranyitz/vscode-search-presets"
