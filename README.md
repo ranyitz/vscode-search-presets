@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="250px" src="https://user-images.githubusercontent.com/11733036/191082260-cb3820c5-b335-4ead-bf8f-31db8d68b278.png" alt="search-presets-logo"/>
+</p>
+
 # VSCode Search Presets 🔎
 
 > vscode extension to configure search presets
