@@ -11,6 +11,11 @@ import { isEmpty } from "lodash";
 const preset = z.object({
   filesToInclude: z.optional(z.string()),
   filesToExclude: z.optional(z.string()),
+  query: z.optional(z.string()),
+  triggerSearch: z.optional(z.boolean()),
+  isRegex: z.optional(z.boolean()),
+  isCaseSensitive: z.optional(z.boolean()),
+  matchWholeWord: z.optional(z.boolean()),
 });
 
 const searchPresets = z.record(preset);

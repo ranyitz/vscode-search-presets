@@ -25,22 +25,64 @@ Use the command palette and type `Search Presets` Or use one of the shortcuts:
 
 ## Extension Settings
 
-This extension contributes the following settings:
+#### filesToInclude
 
-- `search-presets`: your custom presets configuration
+Files to include in the search
 
-```
-// settings.json
+#### filesToExclude
 
-"search-presets": {
+Files to exclude from the search
+
+#### isCaseSensitive
+
+Match Case (Aa)
+
+#### matchWholeWord
+
+Match Whole Word (_ab_)
+
+#### isRegex
+
+Use Regular Expressions (.\*)
+
+#### triggerSearch
+
+Trigger search after selecting a preset
+
+#### query
+
+Enforce a specific search query
+
+### Custom Preset Configuration
+
+> null means that the preset will not override the existing search configuration
+
+```json
+"search-presets.custom": {
     [PresetName]": {
-        "filesToInclude": String
-        "filesToExclude": String
-    },
+        "filesToInclude": string | null,
+        "filesToExclude": string | null,
+        "isCaseSensitive": boolean | null,
+        "matchWholeWord": boolean | null,
+        "isRegex": boolean | null,
+        "triggerSearch": boolean | null,
+        "query": string | null
+    }
 }
 ```
 
-## Default config
+### Global Configurations
+
+> Apply as defaults for all preset configurations
+
+```json
+"search-presets.isCaseSensitive": boolean | null,
+"search-presets.matchWholeWord": boolean | null,
+"search-presets.isRegex": boolean | null,
+"search-presets.triggerSearch": boolean | null
+```
+
+## Default presets
 
 > If you don't configure anything, this are the presets you'll get
 
@@ -55,24 +97,5 @@ This extension contributes the following settings:
     "package.json": {
         "filesToInclude": "package.json"
     }
-}
-```
-
-## Preset ideas
-
-```json
-{
-  "Tests": {
-    "filesToInclude": ".test.*, .spec.*, .e2e.*, .driver.*"
-  },
-  "Source Files": {
-    "filesToExclude": "*.test.js, *.driver.*, *.json"
-  },
-  "package.json": {
-    "filesToInclude": "package.json"
-  },
-  "Lock File": {
-    "filesToInclude": "yarn.lock"
-  }
 }
 ```

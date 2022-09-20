@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getConfig } from "../configuration/getConfig";
+import { Config, getConfig } from "../configuration/getConfig";
 import { Preset } from "../configuration/presets";
 import { FIND_IN_FILES_COMMAND_KEY } from "../consts";
 
@@ -14,18 +14,59 @@ interface IFindInFilesArgs {
   matchWholeWord?: boolean;
 }
 
-const findInFiles = (customPreset: Preset) => {
+const getHighlightedText = (): string | null => {
+  const editor = vscode.window.activeTextEditor;
+  const selection = editor?.selection;
+
+  if (selection && !selection.isEmpty) {
+    const selectionRange = new vscode.Range(
+      selection.start.line,
+      selection.start.character,
+      selection.end.line,
+      selection.end.character
+    );
+    const highlighted = editor.document.getText(selectionRange);
+    return highlighted;
+  }
+
+  return null;
+};
+
+const getClipboardData = async (): Promise<string> =>
+  vscode.env.clipboard.readText();
+
+const getQuery = async () => {
+  const highlightedText = getHighlightedText();
+
+  if (highlightedText) {
+    return highlightedText;
+  }
+
+  const clipboardData = await getClipboardData();
+
+  if (clipboardData) {
+    return clipboardData;
+  }
+
+  return "";
+};
+
+const findInFiles = async (config: Config, selectedPreset: Preset) => {
+  const query = await getQuery();
   const defaults: Partial<IFindInFilesArgs> = {
-    query: "",
-    triggerSearch: false,
+    query,
+    triggerSearch: !!query,
     filesToExclude: "",
     filesToInclude: "",
   };
 
-  vscode.commands.executeCommand(FIND_IN_FILES_COMMAND_KEY, {
+  const findInFilesArgs = {
     ...defaults,
-    ...customPreset,
-  });
+    ...config.globalPreset,
+    ...selectedPreset,
+  };
+
+  vscode.commands.executeCommand(FIND_IN_FILES_COMMAND_KEY, findInFilesArgs);
 };
 
 export const createSearchCommand = (context: vscode.ExtensionContext) => {
@@ -43,7 +84,7 @@ export const createSearchCommand = (context: vscode.ExtensionContext) => {
 
     const selectedPreset = presets[selectedPresetName];
 
-    void findInFiles(selectedPreset);
+    void findInFiles(config, selectedPreset);
   };
 };
 

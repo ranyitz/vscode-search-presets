@@ -35,6 +35,38 @@
     "configuration": {
       "title": "Search Presets",
       "properties": {
+        "search-presets.isCaseSensitive": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Default to \"Match Case (Aa)\"",
+          "default": null
+        },
+        "search-presets.isRegex": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Default to \"Use Regular Expressions (.*)\"",
+          "default": null
+        },
+        "search-presets.matchWholeWord": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Default to \"Match Whole Word (_ab_)\"",
+          "default": null
+        },
+        "search-presets.triggerSearch": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Default to trigger search after selecting a preset",
+          "default": true
+        },
         "search-presets.custom": {
           "order": 1,
           "type": "object",
@@ -44,10 +76,59 @@
             "description": "preset object",
             "properties": {
               "filesToInclude": {
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Files to include in the search",
+                "default": ""
               },
               "filesToExclude": {
-                "type": "string"
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Files to exclude from the search",
+                "default": ""
+              },
+              "isCaseSensitive": {
+                "type": [
+                  "boolean",
+                  "null"
+                ],
+                "description": "Match Case (Aa)",
+                "default": null
+              },
+              "isRegex": {
+                "type": [
+                  "boolean",
+                  "null"
+                ],
+                "description": "Use Regular Expressions (.*)",
+                "default": null
+              },
+              "matchWholeWord": {
+                "type": [
+                  "boolean",
+                  "null"
+                ],
+                "description": "Match Whole Word (_ab_)",
+                "default": null
+              },
+              "triggerSearch": {
+                "type": [
+                  "boolean",
+                  "null"
+                ],
+                "description": "Trigger search after selecting a preset",
+                "default": null
+              },
+              "query": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Enforce a specific search query"
               }
             }
           }
