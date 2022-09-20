@@ -57,7 +57,7 @@ Enforce a specific search query
 
 > null means that the preset will not override the existing search configuration
 
-```json
+```
 "search-presets.custom": {
     [PresetName]": {
         "filesToInclude": string | null,
@@ -75,7 +75,7 @@ Enforce a specific search query
 
 > Apply as defaults for all preset configurations
 
-```json
+```
 "search-presets.isCaseSensitive": boolean | null,
 "search-presets.matchWholeWord": boolean | null,
 "search-presets.isRegex": boolean | null,
