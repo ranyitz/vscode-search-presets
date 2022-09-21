@@ -23,6 +23,16 @@ Use the command palette and type `Search Presets` Or use one of the shortcuts:
 - Windows: `shift + alt + f`
 - Mac: `option + alt + f`
 
+## How does it know what query to take?
+It will resolve the query in the following order
+
+* A query which is configured for the preset.
+* Highlighted text in VSCode.
+* Clipboard text
+* Empty query
+
+> Unfortunatly at the moment, [there is no API for reading the current query in the search widget]([url](https://github.com/microsoft/vscode/issues/152301#issuecomment-1250070003))
+
 ## Extension Settings
 
 #### filesToInclude
