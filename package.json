@@ -2,7 +2,7 @@
   "name": "search-presets",
   "displayName": "Search Presets",
   "icon": "images/logo.png",
-  "description": "Configure presets for vscode's search",
+  "description": "Configure presets for VSCode's search",
   "repository": {
     "url": "https://github.com/ranyitz/vscode-search-presets"
   },
@@ -144,8 +144,7 @@
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "lint": "eslint src --ext ts && prettier --write ."
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
