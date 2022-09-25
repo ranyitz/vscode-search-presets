@@ -10,7 +10,7 @@ Sometimes you want to search through a specific set of files, you can use vscode
 There are some common workflows that are repeated throughout your day, like searching only test files, only source files, only `package.json` files, etc.
 This extension lets you configure presets which configure your search by typing a single command.
 
-![search presets](https://user-images.githubusercontent.com/11733036/191229026-7ffbd085-b78f-45be-99fd-9bc13e68e483.gif)
+![search presets](https://user-images.githubusercontent.com/11733036/192136766-f8003514-d027-4083-94d8-5252546d8554.gif)
 
 ## Installation
 
