@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/ranyitz/vscode-search-presets"
   },
-  "version": "0.0.6",
+  "version": "0.1.0",
   "publisher": "ranyitz",
   "engines": {
     "vscode": "^1.71.0"
