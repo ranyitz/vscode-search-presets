@@ -9,7 +9,7 @@
   "version": "0.1.1",
   "publisher": "ranyitz",
   "engines": {
-    "vscode": "^1.71.0"
+    "vscode": "^1.52.1"
   },
   "categories": [
     "Other"
