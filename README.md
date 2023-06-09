@@ -97,7 +97,7 @@ Enforce a specific search query
 > If you don't configure anything, this are the presets you'll get
 
 ```json
-"search-presets": {
+"search-presets.custom": {
     "Tests": {
       "filesToInclude": ".test.*, .spec.*, .e2e.*, .driver.*"
     },
