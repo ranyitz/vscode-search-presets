@@ -31,7 +31,7 @@ It will resolve the query in the following order
 * Clipboard text
 * Empty query
 
-> Unfortunatly at the moment, [there is no API for reading the current query in the search widget]([url](https://github.com/microsoft/vscode/issues/152301#issuecomment-1250070003))
+> Unfortunatly at the moment, [there is no API for reading the current query in the search widget](https://github.com/microsoft/vscode/issues/152301#issuecomment-1250070003)
 
 ## Extension Settings
 
