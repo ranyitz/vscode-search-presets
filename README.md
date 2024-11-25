@@ -20,16 +20,17 @@ This extension lets you configure presets which configure your search by typing 
 
 Use the command palette and type `Search Presets` Or use one of the shortcuts:
 
-- Windows: `shift + alt + f`
-- Mac: `option + alt + f`
+- Windows: `Shift + Alt + F`
+- Mac: `⇧ ⌥ F`
 
 ## How does it know what query to take?
+
 It will resolve the query in the following order
 
-* A query which is configured for the preset.
-* Highlighted text in VSCode.
-* Clipboard text
-* Empty query
+- A query which is configured for the preset.
+- Highlighted text in VSCode.
+- Clipboard text
+- Empty query
 
 > Unfortunatly at the moment, [there is no API for reading the current query in the search widget](https://github.com/microsoft/vscode/issues/152301#issuecomment-1250070003)
 
