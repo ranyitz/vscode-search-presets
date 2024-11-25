@@ -21,7 +21,7 @@ This extension lets you configure presets which configure your search by typing 
 Use the command palette and type `Search Presets` Or use one of the shortcuts:
 
 - Windows: `Shift + Alt + F`
-- Mac: `⇧ ⌥ F`
+- Mac: `Shift + Alt + F`
 
 ## How does it know what query to take?
 
