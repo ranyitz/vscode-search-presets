@@ -33,7 +33,7 @@ export const getPresets = (context: vscode.ExtensionContext): SearchPresets => {
     if (!context.workspaceState.get(NO_CONFIG_KEY_WARNING)) {
       vscode.window
         .showInformationMessage(
-          `You need to add '${CONFIG_SECTION_KEY}.${CUSTOM_PRESETS_CONFIG_KEY}' to your settings.json, do you want to set it up with extension defaults?`,
+          `Would you like to configure search presets? Selecting 'Yes' will add default presets to your settings.json file.`,
           "yes",
           "no"
         )
@@ -42,7 +42,7 @@ export const getPresets = (context: vscode.ExtensionContext): SearchPresets => {
             workbenchConfig.update(
               CUSTOM_PRESETS_CONFIG_KEY,
               defaultPresets,
-              vscode.ConfigurationTarget.Workspace
+              vscode.ConfigurationTarget.Global
             );
           }
         });
