@@ -1,12 +1,18 @@
 import * as vscode from "vscode";
 import { createSearchCommand } from "./commands/search";
-import { COMMAND_KEY } from "./consts";
+import { SEARCH_COMMAND_KEY, CREATE_PRESET_COMMAND_KEY } from "./consts";
+import { createCreatePresetCommand } from "./commands/createPreset";
 
 export function activate(context: vscode.ExtensionContext) {
-  let searchCommand = vscode.commands.registerCommand(
-    COMMAND_KEY,
+  const searchCommand = vscode.commands.registerCommand(
+    SEARCH_COMMAND_KEY,
     createSearchCommand(context)
   );
 
-  context.subscriptions.push(searchCommand);
+  const createPresetCommand = vscode.commands.registerCommand(
+    CREATE_PRESET_COMMAND_KEY,
+    createCreatePresetCommand(context)
+  );
+
+  context.subscriptions.push(searchCommand, createPresetCommand);
 }
