@@ -33,7 +33,7 @@ export const getPresets = (context: vscode.ExtensionContext): SearchPresets => {
     if (!context.workspaceState.get(NO_CONFIG_KEY_WARNING)) {
       vscode.window
         .showInformationMessage(
-          `Would you like to configure search presets? Selecting 'Yes' will add the default preset configurations to your settings.json file.`,
+          `Would you like to configure search presets? Selecting 'Yes' will add default presets to your settings.json file.`,
           "yes",
           "no"
         )
