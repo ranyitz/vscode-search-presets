@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Search UI</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        background-color: #1e1e1e;
+        color: #cccccc;
+        font-size: 16px;
+      }
+
+      .container {
+        width: 364px;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      .search-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #252526;
+        padding: 8px 16px;
+        height: 36px;
+      }
+
+      .search-title {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        color: #e0e0e0;
+      }
+
+      .header-buttons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .icon-button {
+        background: none;
+        border: none;
+        color: #858585;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .search-body {
+        background-color: #1e1e1e;
+        padding: 8px 0;
+      }
+
+      .search-input-container {
+        flex-grow: 1;
+        background-color: #3c3c3c;
+        border-radius: 2px;
+        margin: 4px 16px;
+        display: flex;
+        position: relative;
+      }
+
+      .search-input {
+        background-color: #3c3c3c;
+        color: #cccccc;
+        border: none;
+        padding: 6px 8px;
+        width: 100%;
+        height: 24px;
+        font-size: 13px;
+      }
+
+      .search-input:focus {
+        outline: none;
+      }
+
+      .toggle-button {
+        background: none;
+        border: none;
+        color: #858585;
+        padding: 0 8px;
+        cursor: pointer;
+      }
+
+      .option-buttons {
+        display: flex;
+        margin-left: 4px;
+      }
+
+      .option-button {
+        background-color: transparent;
+        border: none;
+        color: #cccccc;
+        width: 28px;
+        height: 28;
+        border-radius: 3px;
+        margin: 2px 2px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      .option-button:hover {
+        background-color: #595858;
+        color: #ffffff;
+      }
+      .option-button.checked {
+        background-color: #027bd899;
+        border: solid 1px #0099ff;
+        color: white;
+      }
+
+      .more-button {
+        background: none;
+        border: none;
+        color: #cccccc;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: 6px;
+      }
+
+      .files-label {
+        font-size: 15px;
+        color: #cccccc;
+        margin: 8px 16px 4px;
+        display: block;
+      }
+
+      .preset-name-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 16px;
+        height: 50px;
+      }
+
+      .preset-name-input {
+        color: #ffffff;
+        background-color: transparent;
+        text-align: center;
+        width: 100%;
+        height: 28px;
+        border: 1px solid #cccccc;
+      }
+
+      .preset-name-input:focus {
+        outline: none;
+      }
+
+      .history-button {
+        position: absolute;
+        right: 4px;
+        background: none;
+        border: none;
+        color: #cccccc;
+        cursor: pointer;
+      }
+
+      .files-input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .files-input {
+        background-color: #3c3c3c;
+        color: #cccccc;
+        border: none;
+        border-radius: 2px;
+        padding: 6px 8px;
+        margin: 0 16px;
+        width: 100%;
+        height: 24px;
+        font-size: 16px;
+      }
+
+      .files-input:focus {
+        outline: none;
+      }
+
+      .files-input::placeholder {
+        color: transparent;
+      }
+
+      .files-input:focus::placeholder {
+        color: #cccccca6;
+      }
+
+      .search-input[disabled] {
+        cursor: not-allowed;
+      }
+
+      .error-border {
+        border: 1px solid red !important;
+      }
+
+      .save-button-container {
+        display: flex;
+        justify-content: flex-end;
+        padding: 16px 16px;
+      }
+
+      .save-button {
+        background-color: #0e639c;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 14px;
+        width: 100%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-header">
+        <div class="search-title">CREATE SEARCH PRESET</div>
+        <div class="header-buttons"></div>
+      </div>
+
+      <div class="search-body">
+        <form id="presetForm">
+          <label class="files-label"> Preset Name </label>
+          <div class="preset-name-container">
+            <input
+              type="text"
+              id="presetName"
+              class="preset-name-input"
+              placeholder="e.g. tests, source, config"
+            />
+          </div>
+
+            <div class="search-input-container">
+              <input
+                type="text"
+                disabled
+                class="search-input"
+                placeholder="Search Query..."
+                title="This field is not editable"
+                tooltip="This field is not editable"
+                id="searchQuery"
+              />
+              <button
+                class="option-button"
+                type="button"
+                id="isCaseSensitive"
+                onclick="toggleOptionButton(this)"
+              >
+                Aa
+              </button>
+              <button
+                class="option-button"
+                type="button"
+                id="matchWholeWord"
+                onclick="toggleOptionButton(this)"
+              >
+                ab
+              </button>
+              <button
+                class="option-button"
+                type="button"
+                id="isRegex"
+                onclick="toggleOptionButton(this)"
+              >
+                .❇︎
+              </button>
+            </div>
+          <label class="files-label">Files to Include</label>
+          <div class="files-input-container">
+            <input
+              type="text"
+              id="filesToInclude"
+              class="files-input"
+              placeholder="e.g. *ts, src/**/include"
+            />
+          </div>
+          <label class="files-label">Files to Exclude</label>
+          <div class="files-input-container">
+            <input
+              type="text"
+              id="filesToExclude"
+              class="files-input"
+              placeholder="e.g. *ts, src/**/exclude"
+            />
+          </div>
+
+          <div class="save-button-container">
+            <button type="submit" id="saveButton" class="save-button">
+              Save Preset
+            </button>
+          </div>
+        </form>
+    </div>
+    <script>
+      const vscode = acquireVsCodeApi();
+
+      document
+        .getElementById("presetForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const presetNameInput = document.getElementById("presetName");
+          const presetName = presetNameInput.value.trim();
+
+          if (!presetName) {
+            presetNameInput.classList.add("error-border");
+            return;
+          }
+
+          const searchQuery = document.getElementById("searchQuery").value;
+          const filesToInclude =
+            document.getElementById("filesToInclude").value;
+          const filesToExclude =
+            document.getElementById("filesToExclude").value;
+          const isCaseSensitive = document
+            .getElementById("isCaseSensitive")
+            .classList.contains("checked");
+          const isRegex = document
+            .getElementById("isRegex")
+            .classList.contains("checked");
+          const matchWholeWord = document
+            .getElementById("matchWholeWord")
+            .classList.contains("checked");
+
+          vscode.postMessage({
+            command: "savePreset",
+            data: {
+              presetName,
+              filesToInclude,
+              filesToExclude,
+              isCaseSensitive,
+              isRegex,
+              matchWholeWord,
+            },
+          });
+        });
+
+      // Remove error border when user starts typing
+      document
+        .getElementById("presetName")
+        .addEventListener("input", (event) => {
+          event.target.classList.remove("error-border");
+        });
+
+      function toggleOptionButton(button) {
+        const isChecked = button.classList.toggle("checked");
+        if (isChecked) {
+          button.classList.add("checked");
+        } else {
+          button.classList.remove("checked");
+        }
+      }
+    </script>
+  </body>
+</html>
