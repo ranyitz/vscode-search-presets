@@ -141,6 +141,7 @@
     }
   },
   "scripts": {
+    "version": "auto-changelog -p && git add CHANGELOG.md",
     "vscode:prepublish": "yarn run package",
     "compile": "webpack",
     "watch": "webpack --watch",
@@ -159,6 +160,7 @@
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "@vscode/test-electron": "^2.1.5",
+    "auto-changelog": "^2.5.0",
     "eslint": "^8.20.0",
     "glob": "^8.0.3",
     "mocha": "^10.0.0",
